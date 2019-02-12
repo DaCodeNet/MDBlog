@@ -1,0 +1,41 @@
+@import '~@angular/material/theming';
+
+:host {
+
+	margin-top: 1rem;
+	width: 33%;
+	height: 50%;		
+
+	//&.first { margin-top: 0; }
+
+	.loved {
+		background: mat-color($mat-green, 50);
+		color: mat-color($mat-green, 700);
+	}
+
+	.dont-loved {
+		background: mat-color($mat-red, 50);
+		color: mat-color($mat-red, 700);
+	}		
+
+	.bt-delete {
+		position: absolute;
+		top: 5px;
+		right: 10px;	
+	}
+
+	.bt-edit {
+		position: absolute;
+		top: 5px;
+		right: 40px;	
+	}
+
+	.mat-icon-button:hover {
+		background: mat-color($mat-green, 50);		
+	}
+
+	.mat-chip-list {
+		display: inline-flex;
+	}
+
+}

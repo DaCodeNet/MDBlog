@@ -1,0 +1,30 @@
+/* You can add global styles to this file, and also import other style files */
+
+@import url('https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,800');
+@import url('https://fonts.googleapis.com/icon?family=Material+Icons');
+
+@import '~@angular/material/theming';
+
+$app-typography: mat-typography-config(
+	$font-family: 'Verdana',
+);
+
+@include mat-core($app-typography);
+
+$app-primary:	mat-palette($mat-cyan);
+$app-accent: 	mat-palette($mat-green, 600);
+$app-warn: 		mat-palette($mat-red);
+
+@include angular-material-theme(mat-light-theme($app-primary, $app-accent, $app-warn));
+
+
+/* Resets */
+body { 
+	margin: 0;
+	background-color: mat-color($mat-grey, 200);
+}
+
+app-root {
+	display: flex;
+	flex-direction: column;		
+}

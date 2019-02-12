@@ -1,0 +1,40 @@
+<mat-card>
+    <mat-card-header>
+    <mat-card-title>Modifier votre article</mat-card-title>  
+    </mat-card-header>
+    <form [formGroup]="postForm" (ngSubmit)="onSubmitForm()">
+    <mat-card-content>  
+      <div class="example-container">
+        <mat-form-field formControlName="title" ngDefaultControl >
+          <input matInput placeholder="Titre" value="{{ post.title }}" >
+        </mat-form-field>
+      </div>
+      
+      <div class="example-container">
+        <mat-form-field formControlName="content" ngDefaultControl > 
+          <textarea matInput placeholder="Contenu" value="{{ post.content }}"></textarea>
+        </mat-form-field>
+      </div>
+  
+      <div class="example-container">
+        <mat-form-field formControlName="visibility" ngDefaultControl [ngModel]="post.visibility">
+          <mat-select placeholder="Visibilité" value="{{ post.visibility }}">
+            <mat-option value="private">Privée</mat-option>
+            <mat-option value="public">Publique</mat-option>
+            <mat-option value="friends">Amis</mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+      <!--
+      <div class="example-container" formArrayName="tags">
+        <mat-form-field formControlName="tags" *ngFor="let tag of getTags().controls; let i = index" ngDefaultControl>
+          <input matInput placeholder="Vos #Tags" [formControlName]="i" >
+        </mat-form-field>
+        <button mat-raised-button color="primary" type="button" (click)="onAddTags()">Ajouter</button>
+      </div>
+      -->
+
+    </mat-card-content>
+    <button mat-raised-button color="primary" type="submit" [disabled]="postForm.invalid" >Enregistrer</button>
+    </form>
+  </mat-card>

@@ -1,0 +1,6 @@
+<app-post-list-item-component *ngFor="let post of posts; let i = index" 
+								[post]="post"
+								[ngClass]="{'first': i === 0}"></app-post-list-item-component>
+
+<h1 *ngIf="posts.length===0">Aucun post trouvé!</h1>								
+								

@@ -1,0 +1,102 @@
+<mat-card>
+  <mat-card-header>
+  <mat-card-title>Nouvel Article</mat-card-title>  
+  </mat-card-header>
+  <form [formGroup]="postForm" (ngSubmit)="onSubmitForm()">
+  <mat-card-content>  
+    <div class="example-container">
+      <mat-form-field formControlName="title" ngDefaultControl >
+        <input matInput placeholder="Titre">
+      </mat-form-field>
+    </div>
+    
+    <div class="example-container">
+      <mat-form-field formControlName="content" ngDefaultControl > 
+        <textarea matInput placeholder="Contenu"></textarea>
+      </mat-form-field>
+    </div>
+
+    <div class="example-container">
+      <mat-form-field formControlName="visibility" ngDefaultControl [ngModel]="defaultVisibility">
+        <mat-select placeholder="Visibilié">
+          <mat-option value="private">Privée</mat-option>
+          <mat-option value="public">Publique</mat-option>
+          <mat-option value="friends">Amis</mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+    
+    <div class="example-container" formArrayName="tags">
+      <mat-form-field formControlName="tags" *ngFor="let tag of getTags().controls; let i = index" ngDefaultControl>
+        <input matInput placeholder="Vos #Tags" [formControlName]="i">
+      </mat-form-field>
+      <button mat-raised-button color="primary" type="button" (click)="onAddTags()">Ajouter</button>
+    </div>
+    
+  </mat-card-content>
+  <button mat-raised-button color="primary" type="submit" [disabled]="postForm.invalid" >Enregistrer</button>
+  </form>
+</mat-card>
+
+
+
+<!--
+<div class="example-container">
+  <form [formGroup]="postForm" (ngSubmit)="onSubmitForm()">  
+    <mat-form-field>
+      <input matInput placeholder="Enter your title" [formControl]="title" required>      
+    </mat-form-field>
+
+    <mat-form-field>
+      <input matInput placeholder="Enter your content" [formControl]="content" required>      
+    </mat-form-field>
+  
+    <button type="submit" >Enregistré</button>
+  </form>
+
+</div>
+-->
+
+
+<!--
+<mat-card>
+<mat-card-header>
+<mat-card-title>Nouveau Post</mat-card-title>
+<mat-card-subtitle>le {{ now | date: 'dd/MM/yyyy à HH:mm' }}</mat-card-subtitle>
+</mat-card-header>
+<mat-card-content>
+Humm...
+</mat-card-content>
+
+<div class="example-container">
+  <mat-form-field>
+    <input matInput placeholder="Enter your email" [formControl]="postForm" required>
+    <mat-error *ngIf="postForm.invalid">{{getErrorMessage()}}</mat-error>
+  </mat-form-field>
+</div>
+
+<mat-card-actions>
+<button mat-flat-button 
+  color="accent"
+  (click)="loveIt()"
+  matBadge="{{post.loveIts}}"
+  matBadgePosition="before"
+  matBadgeColor="accent"
+  [matBadgeHidden]="(post.loveIts <= 0)">
+<mat-icon>thumb_up</mat-icon>
+Love it
+</button>
+<button mat-flat-button color="warn" 
+[ngStyle]="{'marginLeft': '1rem'}"
+(click)="dontLoveIt()"
+matBadge="{{post.loveIts | abs}}"
+  matBadgePosition="after"
+  matBadgeColor="warn"
+  [matBadgeHidden]="(post.loveIts >= 0)">
+<mat-icon>thumb_down</mat-icon> 
+Don't love it
+</button>
+</mat-card-actions>
+
+</mat-card>
+-->

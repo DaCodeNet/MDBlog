@@ -1,0 +1,9 @@
+<mat-toolbar color="primary" 
+				[ngClass]="{'mat-elevation-z2': true}"
+				[ngStyle]="{'position': 'fixed',
+							'zIndex': '2'}"> Les Articles
+							<button mat-button [routerLink]="['/home']" routerLinkActive="mat-accent" >								
+								<mat-icon>subject</mat-icon>								
+							</button>
+							<button mat-button [routerLink]="['/post/new']" routerLinkActive="mat-accent" >Nouvel article</button>																															
+						</mat-toolbar>							
